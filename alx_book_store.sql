@@ -45,11 +45,12 @@ CREATE TABLE IF NOT EXISTS Order_Details (
     orderdetail_id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT,
     book_id INT,
-    quantity INT NOT NULL,
+    quantity INT NOT NULL,  -- Changed from DOUBLE to INT
     FOREIGN KEY (order_id) REFERENCES Orders(order_id)
-        ON DELETE CASCADE   -- Optional: Delete order details if order is deleted
-        ON UPDATE CASCADE,  -- Update order details if order_id is updated
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
     FOREIGN KEY (book_id) REFERENCES Books(book_id)
-        ON DELETE CASCADE   -- Optional: Delete order details if book is deleted
-        ON UPDATE CASCADE   -- Update order details if book_id is updated
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
+
