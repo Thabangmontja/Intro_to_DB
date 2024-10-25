@@ -13,6 +13,9 @@ CREATE TABLE authors (
     bio TEXT
 );
 
+SHOW CREATE TABLE authors;
+
+
 -- Create the books table
 CREATE TABLE books (
     book_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -24,6 +27,8 @@ CREATE TABLE books (
     FOREIGN KEY (author_id) REFERENCES authors(author_id)
 );
 
+SHOW CREATE TABLE books;
+
 -- Create the customers table
 CREATE TABLE customers (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -33,6 +38,9 @@ CREATE TABLE customers (
     phone VARCHAR(20)
 );
 
+SHOW CREATE TABLE customers;
+
+
 -- Create the orders table
 CREATE TABLE orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -41,6 +49,9 @@ CREATE TABLE orders (
     status VARCHAR(20),
     FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
 );
+
+SHOW CREATE TABLE orders;
+
 
 -- Create the order_details table
 CREATE TABLE order_details (
@@ -52,3 +63,6 @@ CREATE TABLE order_details (
     FOREIGN KEY (order_id) REFERENCES orders(order_id),
     FOREIGN KEY (book_id) REFERENCES books(book_id)
 );
+
+SHOW CREATE TABLE order_details;
+
