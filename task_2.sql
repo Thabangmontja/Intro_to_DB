@@ -68,3 +68,17 @@ CREATE TABLE order_details (
 );
 SHOW CREATE TABLE order_details;
 
+-- Remove unnecessary columns
+ALTER TABLE customers
+DROP COLUMN first_name,
+DROP COLUMN last_name,
+DROP COLUMN phone;
+
+-- Add the new columns
+ALTER TABLE customers
+ADD COLUMN customer_name VARCHAR(215) NOT NULL,
+ADD COLUMN address TEXT;
+
+-- Modify email column to match specified length
+ALTER TABLE customers
+MODIFY COLUMN email VARCHAR(215);
